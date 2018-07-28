@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
-import logo from './uk-map.png';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+import { Home } from './components/home'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Demos - uk</h1>
-        </header>
-        <p className="App-intro">
-          Code that needs to be migrated to <code>src/App.js</code> can be found commented out in this file.
-          Only needed screens are:
-          <ul>
-            <li>Login screen</li>
-            <li>Main view</li>
-          </ul>
-        </p>
-        <p>To figure out how we can migrate the above, download a zip of https://github.com/citizenly/citizen.git and open it in your code editor as a reference.</p>
-      </div>
+<Router>
+  <div>
+    <ul>
+      <li><Link to="/">Login</Link></li>
+      <li><Link to="/Home">Home</Link></li>
+    </ul>
+    <hr/>
+
+  <Route exact path="/" component={Home}/>
+  </div>
+</Router>
     );
   }
 }
@@ -92,14 +92,14 @@ export default App;
 //     var that = this;
 //     that.setState({rep: that.props.location.state.allRepData});
 //   },
-  
+
 //   loadBillData: function() {
 //     var that = this;
 //     // set billId as url parameter
 //     var billId = this.props.params.billId;
 //     // msg whilst data loads
 //     this.setState({loading: true});
-    
+
 //     // post billId and repName to server and this.setState({bill: response.data})
 //     var repName = localStorage.getItem("repName");
 //     axios.post('/billinfoget', {
@@ -116,9 +116,9 @@ export default App;
 //       console.log(response, 'response');
 //     });
 
-    
+
 //     var vote = this.getUserVote();
-    
+
 //     if (vote === 1) {
 //       that.setState({
 //         greenBtnToggle: "greenbutton-clicked",
@@ -137,7 +137,7 @@ export default App;
 //   handleGBtnClick: function(e) {
 //     e.preventDefault();
 //     var vote = {billId: this.props.params.billId};
-    
+
 //     if (this.state.greenBtnToggle === "greenbutton") {
 //       this.setState({greenBtnToggle:"greenbutton-clicked", redBtnToggle:"inactive-button", vote: 1});
 //       vote.vote = 0;
@@ -153,7 +153,7 @@ export default App;
 //       vote.vote = 1;
 //       //Parse.Cloud.run('handleVote', vote);
 //     }
-    
+
 //     this.saveUserVote(vote);
 //   },
 //   handleRBtnClick: function(e) {
@@ -174,21 +174,21 @@ export default App;
 //       vote.vote = -1;
 //       //Parse.Cloud.run('handleVote', vote);
 //     }
-    
+
 //     this.saveUserVote(vote);
 //   },
 
 //   saveUserVote: function(vote) {
 //     var billId = vote.billId;
 //     var value = vote.vote;
-    
+
 //     window.localStorage.setItem(`bill-vote_${billId}`, value);
 //   },
 //   getUserVote: function() {
 //     var {billId} = this.props.params;
-    
+
 //     var vote = window.localStorage.getItem(`bill-vote_${billId}`);
-    
+
 //     if (vote) {
 //       return Number(vote);
 //     } else {
@@ -231,7 +231,7 @@ export default App;
 //           <p>{this.state.rep.constituency}</p>
 //           <p>Entered house {this.state.rep.entered_house} <br/>through {this.state.rep.entered_reason}</p>
 //         </div>
-        
+
 //         <div className="light-grey-bg-color bubble large-bubble">
 //             <div className="bubble-text">you agree</div><br/>
 //             <div className="bubble-value red-color">{this.state.coherence.length > 1 ? this.state.coherence : '17'}<span className="percent red-color">%</span></div>
@@ -245,13 +245,13 @@ export default App;
 //           </p>
 //         </div>
 //         <div className="back-line"></div>
-        
+
 //         <div className="debate-one">
 //           <div className="topic-title-box">
 //             <div className="topic-header">Uk/EU Future Economic Partnership</div>
 //             <div className="topic-description">– in the House of Commons at 3:34 pm on 5th March 2018.</div>
 //           </div>
-          
+
 //           <div className="statement-box">
 //             <div className="statement-header-and-body">
 //               <div className="statement-header">
@@ -270,7 +270,7 @@ export default App;
 //               <div onClick={this.handleGBtnClick} className={this.state.greenBtnToggle}></div>
 //             </div>
 //           </div>
-          
+
 //           <div className="statement-box">
 //             <div className="statement-header-and-body">
 //               <div className="statement-header">
@@ -289,7 +289,7 @@ export default App;
 //               <div onClick={this.handleGBtnClick} className={this.state.greenBtnToggle}></div>
 //             </div>
 //           </div>
-          
+
 //           <div className="statement-box">
 //             <div className="statement-header-and-body">
 //               <div className="statement-header">
@@ -300,7 +300,7 @@ export default App;
 //                 </div>
 //               </div>
 //               <p className="statement-body">
-//               I congratulate my right hon. Friend on what I thought was an excellent speech—clear and determined, giving the European Union a very clear sense of direction. I thought that perhaps the most important point in the speech—the point voted on in the referendum—was about taking back control, so does she agree that bringing back to a British Parliament all decisions about our arrangements is exactly about delivering on that? When she gets into negotiations about trade arrangements with her European counterparts, will she remind them that cake exists to be eaten and cherries exist to be picked?            
+//               I congratulate my right hon. Friend on what I thought was an excellent speech—clear and determined, giving the European Union a very clear sense of direction. I thought that perhaps the most important point in the speech—the point voted on in the referendum—was about taking back control, so does she agree that bringing back to a British Parliament all decisions about our arrangements is exactly about delivering on that? When she gets into negotiations about trade arrangements with her European counterparts, will she remind them that cake exists to be eaten and cherries exist to be picked?
 //               </p>
 //             </div>
 //             <div className="btn-container">
@@ -308,7 +308,7 @@ export default App;
 //               <div onClick={this.handleGBtnClick} className={this.state.greenBtnToggle}></div>
 //             </div>
 //           </div>
-          
+
 //           <div className="statement-box">
 //             <div className="statement-header-and-body">
 //               <div className="statement-header">
@@ -330,18 +330,18 @@ export default App;
 //             </div>
 //           </div>
 //         </div>
-        
+
 //         <div className="back-line"></div>
-        
 
 
 
-        
+
+
 //         <div className="back-line"></div>
 //         <div className="bubble-container-x-small">
 //           <Link activeClassName="active" className="light-grey-bg-color full-bubble" onClick={this.onMenuItemClick} to="/">Logout</Link>
-//         </div>  
-        
+//         </div>
+
 //         </div>
 //       </div>
 //     );
@@ -393,19 +393,19 @@ export default App;
 //   handleSubmit: function(e) {
 //     e.preventDefault();
 //     var that = this;
-    
+
 //     // check if the postal code is in a valid format
 //     var pc = this.refs.postalcode.value;
 //     var userPostalCode = formattedPc.validatePC(pc);
 //     console.log('HERE', userPostalCode);
-    
+
 //     // show an error message if the user has not entered a postal code in a valid format
 //     if (userPostalCode === "invalid") {
 //       this.setState({invalidPostalCode: "alert"});
 //       event.emit('show_message', {message:"Enter a valid postal code"});
 //     }
-    
-    
+
+
 //     // send the server a valid postal code and fetch the appropriate formatted MP name
 //     else {
 //       axios.post('/repnameget', {
@@ -415,7 +415,7 @@ export default App;
 //         //this needs adapting, not doing anything right now
 //         if(response.data === "invalid") {
 //           that.setState({invalidPostalCode: "alert"});
-//           event.emit('show_message', {message:"There is no constituency associated with your postal code."});  
+//           event.emit('show_message', {message:"There is no constituency associated with your postal code."});
 //         }
 //         else {
 //           var repName = response.data.allRepData.full_name.replace(" ","-").toLowerCase();
@@ -442,19 +442,19 @@ export default App;
 //     return (
 //     <div>
 //       <img alt="" src="images/uk-map.png" className="bg-image"></img>
-      
+
 //       <div className="login-page">
-//         <div className= "citizenlogo"> 
+//         <div className= "citizenlogo">
 //           <img alt="citizen app logo" src="images/citizenlogo.png"></img>
 //         </div>
-        
+
 //         <div className="intro">
-//             <p>In a democracy you elect someone to make decisions for you. 
+//             <p>In a democracy you elect someone to make decisions for you.
 //             <br/>Find out what they're currently doing in your name.</p>
 //             <h1>WHO'S REPRESENTING ME?</h1>
 //             <h3>UK</h3>
 //         </div>
-         
+
 //         <form onSubmit={this.handleSubmit}>
 //           <div className="postcodeinputandentry">
 //             <div className="login-field">
@@ -466,7 +466,7 @@ export default App;
 //           <Message/>
 //           </div>
 //         </form>
-//        </div>   
+//        </div>
 //       </div>
 //     );
 //   }
