@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 import { Signup } from './login/Signup';
 import { Home } from './components/home';

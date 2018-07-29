@@ -27,7 +27,8 @@
 .login-text-styles, .login-and-buttons .login-fields input, .login-and-buttons button {
   text-align: center;
   text-transform: uppercase;
-  font-size: .7rem; }
+  font-size: .7rem;
+  color: #666; }
 
 .demoForm {
   margin-top: 10%; }
@@ -117,3 +118,28 @@ select, select, select {
   background-position: 97% center;
   padding: 0 25px 0 8px;
   font-size: .875em; }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none; }
+
+input.middle:focus {
+  outline-width: 0; }
+
+[contenteditable="true"]:focus {
+  outline: none; }
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid green;
+  -webkit-text-fill-color: green;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s; }
