@@ -29,21 +29,20 @@ axios.post(`http://localhost:3090/signup`, this.state)
     return (
       <form className="demoForm" onSubmit={this.handleSubmit}>
         <img alt="" src="images/uk-map.png" className="bg-image"></img>
-        <h2>Sign up</h2>
-        <div className="one-line-spread">
-          <div>
-            <label htmlFor="email"></label>
-            <input placeholder="username" type="text" className="form-control"
-              name="username" onChange={this.handleChange} />
+        <div className="login-and-buttons">
+          <div className="login-fields">
+            <div>
+              <label htmlFor="email"></label>
+              <input placeholder="username" type="text" className="form-control"
+                name="username" onChange={this.handleChange} />
+            </div>
+            <div>
+              <label htmlFor="password"></label>
+              <input placeholder="password" type="password" className="form-control"
+                name="password" onChange={this.handleChange} />
+            </div>
           </div>
-          <div>
-            <label htmlFor="password"></label>
-            <input placeholder="password" type="password" className="form-control"
-              name="password" onChange={this.handleChange} />
-          </div>
-          <button type="submit" className="btn btn-primary">
-             Sign up
-          </button>
+          <button type="submit" className="btn btn-primary">Sign up</button>
         </div>
       </form>
     )

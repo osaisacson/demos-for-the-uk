@@ -6,17 +6,14 @@ import {
 } from 'react-router-dom'
 import { Signup } from './login/Signup';
 import { Home } from './components/home';
+require('./styles/App.scss');
+
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <ul>
-            <li><Link to="/">Login</Link></li>
-            <li><Link to="/Home">Home</Link></li>
-          </ul>
-          <hr/>
 
         <Route exact path="/Home" component={Home}/>
         <Route exact path="/" component={Signup}/>
