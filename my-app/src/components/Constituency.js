@@ -1,35 +1,50 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 
 export class Constituency extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      mp: []
+    };
 
-    this.state = {person: []};
+this.consitituencyList = this.consitituencyList.bind(this)
+this.list = this.list.bind(this)
   }
-
-  componentDidMount() {
-    this.UserList();
+componentDidMount() {
+  this.consitituencyList();
+}
+  consitituencyList() {
+    fetch("http://lda.data.parliament.uk/members.json?_view=members&_pageSize=5&_page=0")
+      .then(res => res.json())
+      .then(res=> {
+        let mpData = res.result.items;
+        mpData.forEach(el => {
+          let newMp = {
+            fullname: el.fullName,
+            homepage: el.homePage,
+            twitter: el.twitter,
+          };
+          console.log(newMp);
+          this.setState({ mp: this.state.mp.concat(newMp)})
+        })
+      })
+      console.log(this.state.mp)
   }
-
-  UserList() {
-    axios.get('https://www.theyworkforyou.com/api/getConstituency')
-      .then((results) => {JSON.parse(results)})
-      .then(res=> console.log(res))
+  list(e){
+    e.preventDefault();
+    console.log(this.state.mp)
   }
 
   render() {
-    const persons = this.state.person.map((item, i) => (
-      <div>
-        <h1>{ item.name.first }</h1>
-        <span>{ item.cell }, { item.email }</span>
-      </div>
-    ));
-
     return (
       <div id="layout-content" className="layout-content-wrapper">
-        <div className="panel-list">{ persons }</div>
+      <h2>enter your consituency</h2>
+        <form onSubmit={this.consitituencyList}>
+        <button onClick={this.list}>click me</button>
+          <input type="text"
+          name="constituency"/>
+        </form>
       </div>
     );
   }
