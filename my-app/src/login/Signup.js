@@ -7,10 +7,9 @@ import axios from 'axios';
     this.state = {
       username: '',
       password: '',
-    },
+    }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
   }
   handleChange(e) {
       this.setState({[e.target.name]: e.target.value})
@@ -29,20 +28,23 @@ axios.post(`http://localhost:3090/signup`, this.state)
   render() {
     return (
       <form className="demoForm" onSubmit={this.handleSubmit}>
+        <img alt="" src="images/uk-map.png" className="bg-image"></img>
         <h2>Sign up</h2>
-        <div className="form-group">
-          <label htmlFor="email">Username</label>
-          <input type="text" className="form-control"
-            name="username" onChange={this.handleChange} />
+        <div className="one-line-spread">
+          <div>
+            <label htmlFor="email"></label>
+            <input placeholder="username" type="text" className="form-control"
+              name="username" onChange={this.handleChange} />
+          </div>
+          <div>
+            <label htmlFor="password"></label>
+            <input placeholder="password" type="password" className="form-control"
+              name="password" onChange={this.handleChange} />
+          </div>
+          <button type="submit" className="btn btn-primary">
+             Sign up
+          </button>
         </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input type="password" className="form-control"
-            name="password" onChange={this.handleChange} />
-        </div>
-        <button type="submit" className="btn btn-primary">
-           Sign up
-        </button>
       </form>
     )
   }

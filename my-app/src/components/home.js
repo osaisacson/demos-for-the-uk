@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './uk-map.png';
-import './App.css';
+import '../styles/App.scss';
 
 export class Home extends Component {
   render() {

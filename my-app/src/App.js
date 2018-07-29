@@ -18,6 +18,7 @@ class App extends Component {
           </ul>
           <hr/>
 
+        <Route exact path="/Home" component={Home}/>
         <Route exact path="/" component={Signup}/>
         </div>
       </Router>
@@ -26,11 +27,6 @@ class App extends Component {
 }
 
 export default App;
-
-
-
-
-
 
 // CODE FOR MAIN VIEW
 
