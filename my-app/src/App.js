@@ -4,22 +4,23 @@ import {
   Route,
   Link
 } from 'react-router-dom'
-import { Home } from './components/home'
+import { Signup } from './login/Signup';
+import { Home } from './components/home';
 
 class App extends Component {
   render() {
     return (
-<Router>
-  <div>
-    <ul>
-      <li><Link to="/">Login</Link></li>
-      <li><Link to="/Home">Home</Link></li>
-    </ul>
-    <hr/>
+      <Router>
+        <div>
+          <ul>
+            <li><Link to="/">Login</Link></li>
+            <li><Link to="/Home">Home</Link></li>
+          </ul>
+          <hr/>
 
-  <Route exact path="/" component={Home}/>
-  </div>
-</Router>
+        <Route exact path="/" component={Signup}/>
+        </div>
+      </Router>
     );
   }
 }
