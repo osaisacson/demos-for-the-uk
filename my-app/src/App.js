@@ -5,8 +5,9 @@ import {
 } from 'react-router-dom'
 import { Signup } from './login/Signup';
 import { Home } from './components/home';
-require('./styles/App.scss');
 
+require('./styles/App.scss');
+import { Constituency } from './components/Constituency';
 
 class App extends Component {
   render() {
@@ -14,8 +15,18 @@ class App extends Component {
       <Router>
         <div>
 
+          <ul>
+            <li><Link to="/">Login</Link></li>
+            <li><Link to="/Home">Home</Link></li>
+            <li><Link to="/Constituency">Constituency</Link></li>
+          </ul>
+          <hr/>
+
+
         <Route exact path="/Home" component={Home}/>
         <Route exact path="/" component={Signup}/>
+        <Route exact path="/Home" component={Home}/>
+        <Route exact path="/Constituency" component={Constituency}/>
         </div>
       </Router>
     );
