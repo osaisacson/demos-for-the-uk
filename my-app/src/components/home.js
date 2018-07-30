@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './uk-map.png';
-import './App.css';
+import { Link } from 'react-router-dom';
+import '../styles/App.css';
 
 export class Home extends Component {
   render() {
@@ -10,6 +11,11 @@ export class Home extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Demos - uk</h1>
         </header>
+        <ul>
+          <li><Link to="/">Login</Link></li>
+          <li><Link to="/Home">Home</Link></li>
+        </ul>
+        <hr/>
         <p className="App-intro">
           Code that needs to be migrated to <code>src/App.js</code> can be found commented out in this file.
           Only needed screens are:
