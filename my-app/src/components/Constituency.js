@@ -1,42 +1,41 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Button} from 'react-bootstrap';
 
-
-export class Constituency extends React.Component {
+export class Constituency extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      postcode: ''
-    };
+      this.findConstituency = this.findConstituency.bind(this);
+      this.check = this.check.bind(this);
+      this.state = {
+        stream: ''
+      };
+  }
+  findConstituency() {
+let postcode = this.props.postcode;
+    let url = `https://www.theyworkforyou.com/api/getConstituencypostcode=WA168NW?key=EC9gBPGKYoY4CH4z7QDgqPSS`;
+fetch(url)
+.then(res=> res.body)
+.then(body => {
+  const reader = body.getReader();
+  console.log(reader.read())
+  this.setState({stream: reader})
+});
 
-this.validatePC = this.validatePC.bind(this)
-this.handleChange = this.handleChange.bind(this)
   }
 
-validatePC(e){
-e.preventDefault()
-let pc = this.state.postcode.toUpperCase().replace(/\s+/g, "");
-pc = pc.replace(/\-/g, "");
-  const valid = /[A-Z]{1,2}[0-9]{1,2} ?[0-9][A-Z]{2}/i;
-  const ok = valid.test(pc);
-  if (!ok){
-    return "invalid";
+  
+  check() {
+    console.log(this.state.stream)
   }
-  else{
-    return pc;
-  }
-}
-handleChange(e) {
-    this.setState({[e.target.name]: e.target.value})
-}
 
   render() {
+
     return (
-      <div id="layout-content" className="layout-content-wrapper">
-      <h2>enter your consituency</h2>
-        <form onSubmit={this.validatePC}>
-          <input type="text" onChange={this.handleChange}
-          name="postcode"/>
-        </form>
+      <div>
+        <h2>this is the constiuency info page</h2>
+        <Button onClick={this.findConstituency}>Click to learn more</Button>
+        <h2>{this.props.postcode}</h2>
+        <Button onClick={this.check}/>
       </div>
     );
   }

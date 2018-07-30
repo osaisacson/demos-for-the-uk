@@ -5,8 +5,8 @@ import {
 } from 'react-router-dom'
 import { Signup } from './login/Signup';
 import { Home } from './components/home';
-import { Constituency } from './components/Constituency';
-
+import { Postcode } from './components/Postcode';
+import {Constituency} from './components/Constituency'
 require('./styles/App.scss');
 
 class App extends Component {
@@ -18,7 +18,7 @@ class App extends Component {
           <ul>
             <li><Link to="/">Login</Link></li>
             <li><Link to="/Home">Home</Link></li>
-            <li><Link to="/Constituency">Constituency</Link></li>
+            <li><Link to="/Postcode">Postcode</Link></li>
           </ul>
           <hr/>
 
@@ -26,7 +26,7 @@ class App extends Component {
         <Route exact path="/Home" component={Home}/>
         <Route exact path="/" component={Signup}/>
         <Route exact path="/Home" component={Home}/>
-        <Route exact path="/Constituency" component={Constituency}/>
+        <Route exact path="/Postcode" component={Postcode}/>
         </div>
       </Router>
     );
