@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
-  Route
+  Route, Link
 } from 'react-router-dom'
 import { Signup } from './login/Signup';
 import { Home } from './components/home';
+import { Constituency } from './components/Constituency';
 
 require('./styles/App.scss');
-import { Constituency } from './components/Constituency';
 
 class App extends Component {
   render() {
